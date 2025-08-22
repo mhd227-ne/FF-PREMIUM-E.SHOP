@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>✰ FF PREMIUM SHOP 💎 — Bleu site Web by kawaki227</title>
+  <meta name="theme-color" content="#0ea5e9" />
+  <style>
+    :root{
+      /* Palette 100% BLEU */
+      --blue-900:#0b1b3a;
+      --blue-800:#102a5a;
+      --blue-700:#173e80;
+      --blue-600:#1e56a0;
+      --blue-500:#2563eb;
+      --blue-400:#3b82f6;
+      --blue-300:#60a5fa;
+      --blue-200:#93c5fd;
+      --blue-100:#dbeafe;
+
+      --glass-bg: rgba(20, 40, 90, .55);
+      --glass-brd: rgba(120, 180, 255, .25);
+      --txt:#e6f2ff;
+      --txt-dim:#bcd7ff;
+      --glow:#38bdf8;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--txt);
+      background: radial-gradient(1200px 800px at 10% -10%, #102a5a 0, #0b1b3a 60%, #071125 100%);
+      overflow-x:hidden;
+    }
+
+    /* ===== Vidéo de fond + overlay bleu ===== */
+    .bg-wrap{
+      position:fixed; inset:0; z-index:-2; overflow:hidden;
+    }
+    .video-bg{
+      position:absolute; inset:0; width:100%; height:100%;
+      object-fit:cover; filter:saturate(1.2) contrast(1.05) brightness(.72);
+      transform:scale(1.02);
+    }
+    .overlay{
+      position:absolute; inset:0;
+      background:
+        radial-gradient(60% 60% at 70% 20%, rgba(56,189,248,.22) 0, transparent 60%),
+        linear-gradient(180deg, rgba(30,86,160,.55) 0%, rgba(11,27,58,.75) 100%);
+      backdrop-filter: blur(2px);
+      z-index:-1;
+    }
+
+    /* ===== Conteneur en verre dépoli ===== */
+    .container{
+      max-width: 980px;
+      margin: clamp(16px, 4vw, 40px) auto;
+      padding: clamp(14px, 3vw, 24px);
+    }
+
+    .glass{
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-brd);
+      border-radius: 24px;
+      box-shadow:
+        0 10px 30px rgba(0,0,0,.35),
+        0 0 0 1px rgba(59,130,246,.18) inset,
+        0 0 40px rgba(56,189,248,.12);
+      backdrop-filter: blur(10px);
+    }
+
+    /* ===== Header / profil ===== */
+    .header{
+      display:flex; align-items:center; gap:20px;
+      padding:20px; position:relative; overflow:hidden;
+    }
+    .header::after{
+      content:""; position:absolute; inset:auto -30% -60% -30%;
+      height:200%; background: radial-gradient(50% 40% at 50% 100%, rgba(59,130,246,.22), transparent 60%);
+      filter: blur(40px); pointer-events:none;
+    }
+    .pfp-wrap{
+      position:relative; width:110px; height:110px; flex:0 0 auto;
+    }
+    .pfp-ring{
+      position:absolute; inset:-6px;
+      border-radius:50%;
+      background: conic-gradient(from 0deg, var(--blue-300), var(--blue-500), var(--blue-300));
+      filter:blur(6px); opacity:.75;
+      animation: spin 6s linear infinite;
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .pfp{
+      width:100%; height:100%; border-radius:50%; object-fit:cover;
+      border:2px solid rgba(147,197,253,.5);
+      box-shadow: 0 8px 22px rgba(2, 132, 199, .35);
+      position:relative; z-index:1;
+      background:#0b1b3a;
+    }
+    .title{
+      display:flex; flex-direction:column; gap:6px;
+    }
+    .title h1{
+      margin:0; font-weight:800; letter-spacing:.3px;
+      font-size: clamp(20px, 3.6vw, 34px);
+      text-shadow: 0 2px 14px rgba(56,189,248,.35);
+    }
+    .title p{
+      margin:0; color:var(--txt-dim); font-size:clamp(13px,2.2vw,16px);
+    }
+
+    /* ===== Grille des tarifs ===== */
+    .grid{
+      display:grid; gap:14px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      padding:18px;
+    }
+    .card-btn{
+      --br:16px;
+      position:relative;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:16px 18px; border-radius:var(--br);
+      background: linear-gradient(180deg, rgba(16,42,90,.85), rgba(11,27,58,.85));
+      border:1px solid rgba(147,197,253,.18);
+      text-decoration:none; color:var(--txt);
+      box-shadow:
+        0 2px 0 rgba(147,197,253,.18) inset,
+        0 8px 24px rgba(30,64,175,.35);
+      transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease;
+      overflow:hidden;
+    }
+    .card-btn:hover{
+      transform: translateY(-2px);
+      box-shadow:
+        0 0 0 1px rgba(59,130,246,.35) inset,
+        0 14px 32px rgba(37,99,235,.45),
+        0 0 40px rgba(56,189,248,.18);
+      border-color: rgba(59,130,246,.45);
+    }
+    .card-btn .left{
+      display:flex; align-items:center; gap:12px; font-weight:700;
+      letter-spacing:.2px; font-size:18px;
+    }
+    .chip{
+      font-size:13px; padding:6px 10px; border-radius:999px;
+      background: linear-gradient(180deg, rgba(37,99,235,.35), rgba(37,99,235,.15));
+      border:1px solid rgba(147,197,253,.28);
+      color:var(--txt); box-shadow: 0 6px 14px rgba(37,99,235,.35) inset;
+    }
+    .price{
+      font-weight:800; font-size:17px;
+      color:var(--blue-200); text-shadow:0 0 16px rgba(56,189,248,.35);
+    }
+
+    /* ===== Boutons d'action ===== */
+    .actions{
+      display:grid; gap:12px; padding:18px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+    .cta{
+      position:relative; display:flex; align-items:center; justify-content:center;
+      gap:10px; padding:15px 18px; border-radius:18px;
+      background: linear-gradient(180deg, rgba(37,99,235,.9), rgba(30,58,138,.9));
+      border:1px solid rgba(147,197,253,.35);
+      color:#fff; text-decoration:none; font-weight:800; letter-spacing:.3px;
+      box-shadow: 0 10px 28px rgba(30,64,175,.55), 0 0 0 1px rgba(59,130,246,.25) inset;
+      transition: transform .15s ease, filter .2s ease, box-shadow .2s ease;
+      overflow:hidden;
+    }
+    .cta:hover{
+      transform:translateY(-2px);
+      filter: saturate(1.05);
+      box-shadow: 0 14px 34px rgba(37,99,235,.65), 0 0 60px rgba(56,189,248,.25);
+    }
+    .cta .shine{
+      position:absolute; inset:-120% -20% auto -20%; height:200%;
+      background: linear-gradient(120deg, transparent 0%, rgba(147,197,253,.28) 32%, transparent 66%);
+      transform:translateX(-40%) rotate(8deg); animation: sweep 2.8s ease-in-out infinite;
+      pointer-events:none;
+    }
+    @keyframes sweep{
+      0%, 20% {transform: translateX(-60%) rotate(8deg); opacity:0}
+      40%, 60% {transform: translateX(30%) rotate(8deg); opacity:1}
+      100% {transform: translateX(120%) rotate(8deg); opacity:0}
+    }
+
+    /* ===== Footer / signature ===== */
+    footer{
+      padding:18px; text-align:center; color:var(--txt-dim); font-size:14px;
+    }
+    .sig{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:10px 14px; border-radius:12px;
+      background:linear-gradient(180deg, rgba(16,42,90,.7), rgba(11,27,58,.7));
+      border:1px solid rgba(147,197,253,.2);
+      box-shadow: 0 10px 22px rgba(2,6,23,.45);
+    }
+    .sig b{ color:var(--blue-200) }
+    .muted{ opacity:.9 }
+
+    /* ===== Utilitaires ===== */
+    .section{ margin-top:16px }
+    .pad{ padding:10px }
+    .sr{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap }
+
+    /* ===== Responsive tweaks ===== */
+    @media (max-width:520px){
+      .header{ flex-direction:column; text-align:center }
+      .pfp-wrap{ width:96px; height:96px }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fond vidéo bleu -->
+  <div class="bg-wrap">
+    <video class="video-bg" autoplay muted loop playsinline>
+      <source src="https://files.catbox.moe/f47tfx.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay"></div>
+  </div>
+
+  <main class="container">
+    <!-- Tête -->
+    <section class="glass header">
+      <div class="pfp-wrap">
+        <span aria-hidden="true" class="pfp-ring"></span>
+        <img src="https://files.catbox.moe/gedmhz.jpg" alt="Photo de profil de la boutique" class="pfp" />
+      </div>
+      <div class="title">
+        <h1>✰ ƑƑ ✰ 𝙋𝙍𝙀𝙈𝙄𝙐𝙈 ~ 𝙀_𝙎𝙃𝙊𝙋 💎</h1>
+        <p>Tarifs officiels</p>
+      </div>
+    </section>
+
+    <!-- Tarifs -->
+    <section class="glass section">
+      <div class="grid">
+        <a class="card-btn" href="https://wa.me/22788363898?text=Bonjour%20!%20Je%20veux%20110%20diamants%20(800%20FCA).">
+          <span class="left"><span class="chip">Pack</span>110 💎</span>
+          <span class="price">800 FCA</span>
+        </a>
+
+        <a class="card-btn" href="https://wa.me/22788363898?text=Bonjour%20!%20Je%20veux%20231%20diamants%20(1400%20FCA).">
+          <span class="left"><span class="chip">Pack</span>231 💎</span>
+          <span class="price">1400 FCA</span>
+        </a>
+
+        <a class="card-btn" href="https://wa.me/22788363898?text=Bonjour%20!%20Je%20veux%20583%20diamants%20(3500%20FCA).">
+          <span class="left"><span class="chip">Pack</span>583 💎</span>
+          <span class="price">3500 FCA</span>
+        </a>
+
+        <a class="card-btn" href="https://wa.me/22788363898?text=Bonjour%20!%20Je%20veux%201188%20diamants%20(7000%20FCA).">
+          <span class="left"><span class="chip">Pack</span>1188 💎</span>
+          <span class="price">7000 FCA</span>
+        </a>
+
+        <a class="card-btn" href="https://wa.me/22788363898?text=Bonjour%20!%20Je%20veux%202420%20diamants%20(13000%20FCA).">
+          <span class="left"><span class="chip">Pack</span>2420 💎</span>
+          <span class="price">13000 FCA</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Actions -->
+    <section class="glass section">
+      <div class="actions">
+        <a class="cta" href="https://whatsapp.com/channel/0029Vb64KvdJUM2V24EyDB2O" target="_blank" rel="noopener">
+          <span class="shine" aria-hidden="true"></span>📢 Suivre la chaîne WhatsApp
+        </a>
+        <a class="cta" href="https://wa.me/22788363898" target="_blank" rel="noopener">
+          <span class="shine" aria-hidden="true"></span>📳 Contacter le vendeur
+        </a>
+      </div>
+    </section>
+
+    <!-- Signature -->
+    <footer class="pad">
+      <div class="sig">
+        <span class="muted">by</span> <b>𝙺𝙰𝚆𝙰𝙺𝙸²²7✎Ⓥ</b>
+        <span class="muted">| Num :</span> <b>22781289418</b>
+      </div>
+    </footer>
+  </main>
+
+</body>
+</html>
